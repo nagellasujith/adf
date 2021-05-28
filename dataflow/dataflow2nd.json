@@ -1,0 +1,32 @@
+{
+	"name": "dataflow2nd",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "adlsinputdataflow",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "adlsouputdataflow",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "ConditionalSplit2"
+				}
+			],
+			"script": "source(output(\n\t\tName as string,\n\t\tSalary as integer\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 split(startsWith({Name}, 's'),\n\tdisjoint: false) ~> ConditionalSplit2@(name2)\nConditionalSplit2@name2 sink(input(\n\t\tsreedhar as string,\n\t\t{21000} as string,\n\t\ttrue as string,\n\t\t{2020-12-07 18:13:55.9700000} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+		}
+	}
+}

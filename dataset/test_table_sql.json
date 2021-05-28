@@ -1,0 +1,33 @@
+{
+	"name": "test_table_sql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerall",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "name",
+				"type": "varchar"
+			},
+			{
+				"name": "salary",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "test_table"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

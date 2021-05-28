@@ -1,0 +1,13 @@
+{
+	"name": "SPlook",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServeronpremisesujith1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,14 @@
+{
+	"name": "AzureDataLakeStore1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDataLakeStore",
+		"typeProperties": {
+			"dataLakeStoreUri": "https://gen1s.azuredatalakestore.net/webhdfs/v1",
+			"tenant": "0a4d521f-0aa8-4f43-af48-f29978c32f38",
+			"subscriptionId": "5701f68a-c0a2-4ce1-893b-ba2d94deb4e7",
+			"resourceGroupName": "SUJITH_TEST"
+		}
+	}
+}

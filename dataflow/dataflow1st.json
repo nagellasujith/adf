@@ -1,0 +1,35 @@
+{
+	"name": "dataflow1st",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "dataflowmap",
+						"type": "DatasetReference"
+					},
+					"name": "onpremiseexcel"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ADLSoutput",
+						"type": "DatasetReference"
+					},
+					"name": "adls2"
+				}
+			],
+			"transformations": [
+				{
+					"name": "DerivedColumn1"
+				},
+				{
+					"name": "ID"
+				}
+			],
+			"script": "source(output(\n\t\tname as string,\n\t\tsalary as string,\n\t\tcity as string,\n\t\tMobile as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> onpremiseexcel\nonpremiseexcel derive(HASH = toBinary(md5(name+city+Mobile)),\n\t\tDatemodified = currentDate()) ~> DerivedColumn1\nDerivedColumn1 keyGenerate(output(key as long),\n\tstartAt: 1L) ~> ID\nID sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> adls2"
+		}
+	}
+}

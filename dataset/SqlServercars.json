@@ -1,0 +1,42 @@
+{
+	"name": "SqlServercars",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServeronpremise",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Make",
+				"type": "varchar"
+			},
+			{
+				"name": "Model",
+				"type": "varchar"
+			},
+			{
+				"name": "Type",
+				"type": "varchar"
+			},
+			{
+				"name": "Origin",
+				"type": "varchar"
+			},
+			{
+				"name": "DriveTrain",
+				"type": "varchar"
+			},
+			{
+				"name": "Length",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "cars"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

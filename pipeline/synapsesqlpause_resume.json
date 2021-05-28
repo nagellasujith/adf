@@ -1,0 +1,31 @@
+{
+	"name": "synapsesqlpause_resume",
+	"properties": {
+		"activities": [
+			{
+				"name": "Pool_paues_resume",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://management.azure.com/subscriptions/5701f68a-c0a2-4ce1-893b-ba2d94deb4e7/resourceGroups/SUJITH_TEST/providers/Microsoft.Synapse/workspaces/synapseworkspacesujith/sqlPools/dedisqlpool/resume?api-version=2019-06-01-preview",
+					"method": "POST",
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://management.azure.com/"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-04-08T06:51:41Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
